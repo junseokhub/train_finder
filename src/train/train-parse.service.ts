@@ -1,7 +1,13 @@
 export class TrainParseService {
+  constructor() {}
 
+  async parseToNodeId() {
 
+  }
 
+  async parseToVehiclekndId() {
+
+  }
   // { citycode: [ '11' ], cityname: [ '서울특별시' ] },
   // { citycode: [ '12' ], cityname: [ '세종특별시' ] },
   // { citycode: [ '21' ], cityname: [ '부산광역시' ] },
@@ -36,5 +42,18 @@ export class TrainParseService {
 //   { vehiclekndid: 17, vehiclekndnm: 'SRT' },
 //   { vehiclekndid: 18, vehiclekndnm: 'ITX-마음' },
 //   { vehiclekndid: 19, vehiclekndnm: 'KTX-청룡' }
+// ]
+
+// [
+//   { nodeid: 'NAT020040', nodename: '상봉' },
+//   { nodeid: 'NAT130036', nodename: '서빙고' },
+//   { nodeid: 'NAT130070', nodename: '옥수' },
+//   { nodeid: 'NAT130104', nodename: '왕십리' },
+//   { nodeid: 'NAT130126', nodename: '청량리' },
+//   { nodeid: 'NAT130182', nodename: '광운대' },
+//   { nodeid: 'NAT010000', nodename: '서울' },
+//   { nodeid: 'NAT010032', nodename: '용산' },
+//   { nodeid: 'NAT010058', nodename: '노량진' },
+//   { nodeid: 'NAT010091', nodename: '영등포' }
 // ]
 }

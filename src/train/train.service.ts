@@ -37,13 +37,13 @@ export class TrainService {
     return response.data?.response?.body?.items?.item || [];
   }
 
-  async cityCodeList() {
+  async cityCodeList(cityCode: string) {
     const url = 'http://apis.data.go.kr/1613000/TrainInfoService/getCtyAcctoTrainSttnList';
 
     const params = new URLSearchParams({
       serviceKey: this.serviceKey,
       _type: 'json',
-      cityCode: '11',
+      cityCode,
     });
 
     const response = await axios.get(`${url}?${params.toString()}`, { responseType: 'json' });

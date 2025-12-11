@@ -22,7 +22,7 @@ export class TrainController {
       console.log('조회된 열차가 없습니다.');
       return;
     }
-
+    
     console.log('=== 🚆 기차 조회 결과 ===');
     items.forEach((item: any) => {
       console.log(`열차번호: ${item.trainno}`);
@@ -35,8 +35,9 @@ export class TrainController {
     });
   }
 
-  async cityCodeList() {
-    const items = await this.trainService.cityCodeList();
+  async cityCodeList(cityCode: string) {
+    const items = await this.trainService.cityCodeList(cityCode);
+    console.log(cityCode);
     console.log('=== 🏢 기차역 목록 ===');
     console.log(items);
   }

@@ -28,8 +28,9 @@ program
 program
   .command('city')
   .description('city')
+  .option('--code <codeNumber>')
   .action((opts) => {
-    trainController.cityCodeList();
+    trainController.cityCodeList(opts.code);
   });
 
   program
