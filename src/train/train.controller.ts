@@ -15,8 +15,8 @@ export class TrainController {
     return `${year}-${month}-${day} ${hour}:${minute}`;
   }
 
-  async search(dep: string, arr: string, date: string) {
-    const items = await this.trainService.searchTrain(dep, arr, date);
+  async search(dep: string, arr: string, date: string, trainName: string) {
+    const items = await this.trainService.searchTrain(dep, arr, date, trainName);
 
     if (!items.length) {
       console.log('조회된 열차가 없습니다.');

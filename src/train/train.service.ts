@@ -20,17 +20,20 @@ export class TrainService {
     return
   }
 
-  async searchTrain(depPlaceId: string, arrPlaceId: string, date: string) {
+  async searchTrain(depName: string, arrName: string, date: string, trainName: string) {
     const url = 'http://apis.data.go.kr/1613000/TrainInfoService/getStrtpntAlocFndTrainInfo';
     this.today(date);
-
+    const trainGradeCode = await this.trainParseService.parseToNodeId(trainName);
+    const nodeId = await this.trainParseService.trainDepArrFinder(depName, arrName);
+    const depPlaceId = nodeId.depNodeId;
+    const arrPlaceId = nodeId.arrNodeId;
     const params = new URLSearchParams({
       serviceKey: this.serviceKey,
       _type: 'json',
       depPlaceId,
       arrPlaceId,
       depPlandTime: date,
-      trainGradeCode: '00',
+      trainGradeCode,
     });
 
     const response = await axios.get(`${url}?${params.toString()}`, { responseType: 'json' });
