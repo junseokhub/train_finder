@@ -15,6 +15,10 @@ export class TrainController {
     return `${year}-${month}-${day} ${hour}:${minute}`;
   }
 
+  async trainList() {
+    return await this.trainService.trainList();
+  }
+
   async search(dep: string, arr: string, date: string, trainName: string) {
     const items = await this.trainService.searchTrain(dep, arr, date, trainName);
 

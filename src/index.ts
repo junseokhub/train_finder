@@ -14,6 +14,13 @@ program
   .description('KTX/SRT CLI')
   .version('1.0.0');
 
+program 
+  .command('tarinlist')
+  .description('train List')
+  .action(() => {
+    trainController.trainList();
+  })
+
 program
   .command('search')
   .description('출발/도착/날짜/기차종류 기반 기차 조회')

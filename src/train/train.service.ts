@@ -7,6 +7,10 @@ export class TrainService {
     private readonly trainParseService: TrainParseService
   ) {}
 
+  async trainList() {
+     return await this.trainParseService.trainList();
+  }
+
   async today(date: string) {
     const now = new Date();
     const kstOffset = 9 * 60;

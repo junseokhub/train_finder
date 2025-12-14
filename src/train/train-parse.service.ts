@@ -2,6 +2,13 @@ import trainData from './train-data.json'
 export class TrainParseService {
   constructor() {}
 
+  async trainList() {
+    const trainList = trainData.trainNames;
+    trainList.forEach(train => {
+      console.log(train);
+    });
+  }
+
   async parseToNodeId(trainName: string) {
     const trainNames = trainData.trainNames;
     const vehicleMapping = trainData.vehicleMapping;
