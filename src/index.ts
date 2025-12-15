@@ -16,7 +16,7 @@ program
 
 program 
   .command('trainlist')
-  .description('train List')
+  .description('기차 종류 전체조회')
   .action(() => {
     trainController.trainList();
   })
@@ -32,17 +32,17 @@ program
     trainController.search(opts.dep, opts.arr, opts.date, opts.train);
   });
 
-program
-  .command('city')
-  .description('city')
-  .option('--code <codeNumber>')
-  .action((opts) => {
-    trainController.cityCodeList(opts.code);
-  });
+// program
+//   .command('city')
+//   .description('')
+//   .option('--code <codeNumber>')
+//   .action((opts) => {
+//     trainController.cityCodeList(opts.code);
+//   });
 
-  program
+program
   .command('citylist')
-  .description('citylist')
+  .description('기차역 전체조회')
   .action((opts) => {
     trainController.cityList();
   });

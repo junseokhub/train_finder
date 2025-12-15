@@ -1,15 +1,15 @@
 {
   "name": "trainfinder",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "train finder in korea",
   "author": "junseok oh",
   "private": true,
   "license": "UNLICENSED",
-  "bin" : {
+  "bin": {
     "trainfinder": "./dist/index.js"
   },
   "scripts": {
-    "build": "nest build",
+    "build": "nest build && chmod +x ./dist/index.js",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
