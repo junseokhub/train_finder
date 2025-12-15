@@ -18,6 +18,11 @@ ktx, ktx산천A, ktx산천B, ktx이음, srt, ktx청룡
 trainfinder trainlist
 ```
 
+## 기차역 조회
+```bash
+trainfinder citylist
+```
+
 ## 기차 조회
 
 출발역, 도착역, 날짜를 기반으로 기차 조회
