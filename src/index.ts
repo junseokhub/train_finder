@@ -41,10 +41,10 @@ program
   });
 
   program
-  .command('test')
-  .description('test')
+  .command('citylist')
+  .description('citylist')
   .action((opts) => {
-    trainController.test();
+    trainController.cityList();
   });
 
 program.parse();

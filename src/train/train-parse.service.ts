@@ -45,6 +45,14 @@ export class TrainParseService {
       arrNodeId,
     }
   }
+
+  async cityList() {
+    const cityList = trainData.nodeList;
+
+    return cityList.forEach(e => {
+      console.log(e.nodename);
+    });
+  }
 }
 
 

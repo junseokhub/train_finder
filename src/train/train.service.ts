@@ -58,15 +58,7 @@ export class TrainService {
     return response.data?.response?.body?.items?.item || [];
   }
 
-  async test() {
-    const url = 'http://apis.data.go.kr/1613000/TrainInfoService/getVhcleKndList'
-
-    const params = new URLSearchParams({
-      serviceKey: this.serviceKey,
-      _type: 'json',
-    });
-
-    const response = await axios.get(`${url}?${params.toString()}`, { responseType: 'json' });
-    return response.data?.response?.body?.items?.item || [];
+  async cityList() {
+    return await this.trainParseService.cityList();
   }
 }

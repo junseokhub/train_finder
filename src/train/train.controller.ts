@@ -46,8 +46,7 @@ export class TrainController {
     console.log(items);
   }
 
-  async test() {
-    const items = await this.trainService.test();
-    console.log(items);
+  async cityList() {
+    return await this.trainService.cityList();
   }
 }
