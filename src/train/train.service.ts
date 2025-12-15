@@ -48,6 +48,7 @@ export class TrainService {
     const url = 'http://apis.data.go.kr/1613000/TrainInfoService/getCtyAcctoTrainSttnList';
 
     const params = new URLSearchParams({
+      numOfRows: "100",
       serviceKey: this.serviceKey,
       _type: 'json',
       cityCode,

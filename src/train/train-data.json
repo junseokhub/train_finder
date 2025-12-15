@@ -1,52 +1,114 @@
 {
   "trainNames": [
     "ktx",
-    "새마을호",
-    "무궁화호",
-    "누리로",
-    "ktx산천1",
-    "itx새마을",
-    "itx청춘",
-    "ktx산천2",
+    "ktx산천A",
+    "ktx산천B",
     "ktx이음",
     "srt",
-    "itx마음",
     "ktx청룡"
   ],
   "vehicleMapping": [
     { "vehiclekndid": "00", "vehiclekndnm": "KTX" },
-    { "vehiclekndid": "01", "vehiclekndnm": "새마을호" },
-    { "vehiclekndid": "02", "vehiclekndnm": "무궁화호" },
-    { "vehiclekndid": "04", "vehiclekndnm": "누리로" },
     { "vehiclekndid": "07", "vehiclekndnm": "KTX-산천(A-type)" },
-    { "vehiclekndid": "08", "vehiclekndnm": "ITX-새마을" },
-    { "vehiclekndid": "09", "vehiclekndnm": "ITX-청춘" },
     { "vehiclekndid": "10", "vehiclekndnm": "KTX-산천(B-type)" },
     { "vehiclekndid": "16", "vehiclekndnm": "KTX-이음" },
     { "vehiclekndid": "17", "vehiclekndnm": "SRT" },
-    { "vehiclekndid": "18", "vehiclekndnm": "ITX-마음" },
     { "vehiclekndid": "19", "vehiclekndnm": "KTX-청룡" }
   ],
   "nodeList": [
     { "nodeid": "NAT130126", "nodename": "청량리" },
     { "nodeid": "NAT010000", "nodename": "서울" },
     { "nodeid": "NAT010032", "nodename": "용산" },
-    { "nodeid": "NAT010058", "nodename": "노량진" },
+    { "nodeid": "NATH30000", "nodename": "수서" },
     { "nodeid": "NAT010091", "nodename": "영등포" },
-    { "nodeid": "NAT011403", "nodename": "부강" },
-    { "nodeid": "NAT011298", "nodename": "조치원" },
-    { "nodeid": "NAT011079", "nodename": "소정리" },
-    { "nodeid": "NAT011154", "nodename": "전의" },
+    { "nodeid": "NAT110147", "nodename": "행신" },
+    { "nodeid": "NAT020040", "nodename": "상봉" },
+
+    { "nodeid": "NATC10580", "nodename": "인천공항T1" },
+
+    { "nodeid": "NAT010415", "nodename": "수원" },
+    { "nodeid": "NATH10219", "nodename": "광명" },
+    { "nodeid": "NATH30326", "nodename": "동탄" },
+    { "nodeid": "NATH30536", "nodename": "평택지제" },
+    { "nodeid": "NAT250007", "nodename": "판교" },
+
+    { "nodeid": "NAT020864", "nodename": "서원주" },
+    { "nodeid": "NAT020947", "nodename": "원주" },
+    { "nodeid": "NAT021033", "nodename": "만종" },
+    { "nodeid": "NATN10428", "nodename": "둔내" },
+    { "nodeid": "NATN10230", "nodename": "횡성" },
+    { "nodeid": "NATN10787", "nodename": "진부" },
+    { "nodeid": "NATN10625", "nodename": "평창" },
+    { "nodeid": "NAT601936", "nodename": "강릉" },
+    { "nodeid": "NAT601774", "nodename": "정동진" },
+    { "nodeid": "NAT601485", "nodename": "동해" },
+
+    { "nodeid": "NAT050044", "nodename": "오송" },
+    { "nodeid": "NATH20438", "nodename": "공주" },
+
+    { "nodeid": "NAT280090", "nodename": "가남" },
+    { "nodeid": "NAT250428", "nodename": "부발" },
+    { "nodeid": "NAT280212", "nodename": "감곡장호원" },
+    { "nodeid": "NAT280358", "nodename": "앙성온천" },
+    { "nodeid": "NAT280666", "nodename": "살미" },
+    { "nodeid": "NAT280751", "nodename": "수안보온천" },
+    { "nodeid": "NAT280814", "nodename": "연풍" },
+    { "nodeid": "NAT050827", "nodename": "충주" },
+    { "nodeid": "NAT021549", "nodename": "제천" },
+    { "nodeid": "NAT021784", "nodename": "단양" },
+    
+
     { "nodeid": "NAT014445", "nodename": "부산" },
+    { "nodeid": "NATH13717", "nodename": "울산" },
+    { "nodeid": "NAT013841", "nodename": "밀양" },
+    { "nodeid": "NAT750046", "nodename": "부전" },
+    { "nodeid": "NAT014150", "nodename": "물금" },
+    { "nodeid": "NAT014281", "nodename": "구포" },
+    { "nodeid": "NAT013841", "nodename": "밀양" },
+    { "nodeid": "NAT880177", "nodename": "진영" },
+    { "nodeid": "NAT880281", "nodename": "창원중앙" },
+    { "nodeid": "NAT880310", "nodename": "창원" },
+    { "nodeid": "NAT880345", "nodename": "마산" },
+    { "nodeid": "NAT880766", "nodename": "반성" },
+    { "nodeid": "NAT881014", "nodename": "진주" },
+
+    { "nodeid": "NAT022053", "nodename": "풍기" },
+    { "nodeid": "NAT022188", "nodename": "영주" },
+    { "nodeid": "NAT022558", "nodename": "안동" },
+    { "nodeid": "NAT022844", "nodename": "의성" },
+    { "nodeid": "NAT023449", "nodename": "영천" },
     { "nodeid": "NAT013239", "nodename": "대구" },
     { "nodeid": "NAT013271", "nodename": "동대구" },
     { "nodeid": "NAT013189", "nodename": "서대구" },
-    { "nodeid": "NAT031857", "nodename": "광주송정" },
-    { "nodeid": "NAT883012", "nodename": "광주" },
+    { "nodeid": "NATH12383", "nodename": "김천구미" },
+    { "nodeid": "NAT280927", "nodename": "문경" },
+    { "nodeid": "NATH13421", "nodename": "경주" },
+    { "nodeid": "NAT8B0351", "nodename": "포항" },
+
     { "nodeid": "NAT011668", "nodename": "대전" },
     { "nodeid": "NAT030057", "nodename": "서대전" },
     { "nodeid": "NAT011524", "nodename": "신탄진" },
-    { "nodeid": "NATH13717", "nodename": "울산" }
+
+    { "nodeid": "NAT030254", "nodename": "계룡" },
+    { "nodeid": "NAT030508", "nodename": "논산" },
+
+    { "nodeid": "NAT030879", "nodename": "익산" },
+    { "nodeid": "NAT040257", "nodename": "전주" },
+    { "nodeid": "NAT031056", "nodename": "김제" },
+    { "nodeid": "NAT040868", "nodename": "남원" },
+    { "nodeid": "NAT031314", "nodename": "정읍" },
+    { "nodeid": "NAT040536", "nodename": "임실" },
+    { "nodeid": "NAT040667", "nodename": "오수" },
+
+
+    { "nodeid": "NAT031638", "nodename": "장성" }, 
+    { "nodeid": "NAT031857", "nodename": "광주송정" },
+    { "nodeid": "NAT032563", "nodename": "목포" },
+    { "nodeid": "NAT031998", "nodename": "나주" },
+    { "nodeid": "NAT041072", "nodename": "곡성" },
+    { "nodeid": "NAT041285", "nodename": "구례구" },
+    { "nodeid": "NAT041595", "nodename": "순천" },
+    { "nodeid": "NAT041993", "nodename": "여수EXPO" }
   ],
   "city": [
     { "citycode": 11, "cityname": "서울특별시" },
@@ -67,6 +129,8 @@
     { "citycode": 38, "cityname": "경상남도" }
   ]
 }
+
+
 
 
 

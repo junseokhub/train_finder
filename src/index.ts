@@ -15,7 +15,7 @@ program
   .version('1.0.0');
 
 program 
-  .command('tarinlist')
+  .command('trainlist')
   .description('train List')
   .action(() => {
     trainController.trainList();
@@ -24,12 +24,12 @@ program
 program
   .command('search')
   .description('출발/도착/날짜/기차종류 기반 기차 조회')
-  .option('--from <dep>', '출발역 ID')
-  .option('--to <arr>', '도착역 ID')
+  .option('--dep <dep>', '출발역 ID')
+  .option('--arr <arr>', '도착역 ID')
   .option('--date <date>', '날짜 YYYYMMDD', '20230405')
   .option('--train <train>', '열차종류', '00')
   .action((opts) => {
-    trainController.search(opts.from, opts.to, opts.date, opts.train);
+    trainController.search(opts.dep, opts.arr, opts.date, opts.train);
   });
 
 program
