@@ -20,12 +20,30 @@ trainfinder trainlist
 
 ## 기차역 조회
 ```bash
-trainfinder citylist
+trainfinder stationlist
+```
+
+## 기차역 존재 유무 조회
+```bash
+trainfinder station --st <역이름>
+
+# 예시
+trainfinder station --st 수서
 ```
 
 ## 기차 조회
 
 출발역, 도착역, 날짜를 기반으로 기차 조회
+
+- 옵션 설명
+--dep : 출발역 코드
+
+--arr : 도착역 코드
+
+--date : 조회할 날짜 (기본값: 오늘 날짜)
+
+--train : 열차 종류 (기본값: ktx)
+
 
 ```bash
 trainfinder search --dep <출발역 이름> --arr <도착역 이름> --date <YYYYMMDD> --train <열차종류>
@@ -37,12 +55,4 @@ trainfinder search --dep 서울 --arr 오송 --date 20251212 --train ktx
 ```
 
 
-- 옵션 설명
---dep : 출발역 코드
-
---arr : 도착역 코드
-
---date : 조회할 날짜 (기본값: 오늘 날짜)
-
---train : 열차 종류 (기본값: ktx)
 
