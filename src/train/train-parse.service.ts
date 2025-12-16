@@ -46,10 +46,14 @@ export class TrainParseService {
     }
   }
 
-  async cityList() {
-    const cityList = trainData.nodeList;
+  async findStation(station: String) {
+    return trainData.nodeList.find(e => e.nodename === station || null);
+  }
 
-    return cityList.forEach(e => {
+  async stationList() {
+    const stationList = trainData.nodeList;
+
+    return stationList.forEach(e => {
       console.log(e.nodename);
     });
   }

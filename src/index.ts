@@ -1,13 +1,11 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
 import { TrainService } from './train/train.service';
-import { TrainController } from './train/train.controller';
 import { TrainParseService } from './train/train-parse.service';
 
 const program = new Command();
 const trainParseService = new TrainParseService();
 const trainService = new TrainService(trainParseService);
-const trainController = new TrainController(trainService);
 
 program
   .name('train')
@@ -18,7 +16,7 @@ program
   .command('trainlist')
   .description('기차 종류 전체조회')
   .action(() => {
-    trainController.trainList();
+    trainService.trainList();
   })
 
 program
@@ -29,7 +27,7 @@ program
   .option('--date <date>', '날짜 YYYYMMDD', '20230405')
   .option('--train <train>', '열차종류', '00')
   .action((opts) => {
-    trainController.search(opts.dep, opts.arr, opts.date, opts.train);
+    trainService.searchTrain(opts.dep, opts.arr, opts.date, opts.train);
   });
 
 // program
@@ -37,14 +35,22 @@ program
 //   .description('')
 //   .option('--code <codeNumber>')
 //   .action((opts) => {
-//     trainController.cityCodeList(opts.code);
+//     trainService.cityCodeList(opts.code);
 //   });
 
 program
-  .command('citylist')
+  .command('station')
+  .description('기차역 존재 유무 확인')
+  .option('--st <st>', '검색역')
+  .action((opts) => {
+     trainService.findStation(opts.st);
+  });
+
+program
+  .command('stationlist')
   .description('기차역 전체조회')
   .action((opts) => {
-    trainController.cityList();
+    trainService.stationList();
   });
 
 program.parse();
