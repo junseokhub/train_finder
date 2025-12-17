@@ -24,41 +24,54 @@ export class TrainParseService {
     return match ? String(match.vehiclekndid) : '00';
   }
 
-  async trainDepArrFinder(depName: string, arrName: string) {
-    const nodeList = trainData.nodeList;
+ async trainDepArrFinder(depName: string, arrName: string) {
+  const depNode = await this.findStation(depName);
+  const arrNode = await this.findStation(arrName);
 
-    const depNode = nodeList.find((node) => node.nodename.toLowerCase().trim() === depName.toLowerCase().trim());
-    const arrNode = nodeList.find((node) => node.nodename.toLowerCase().trim() === arrName.toLowerCase().trim());
-
-    if (!depNode) {
-      return { error: `출발역 "${depName}"을(를) 찾을 수 없습니다. 역명을 다시 확인해 주세요.` };
-    }
-    if (!arrNode) {
-      return { error: `도착역 "${arrName}"을(를) 찾을 수 없습니다. 역명을 다시 확인해 주세요.` };
-    }
-
-
-    const depNodeId = depNode ? depNode.nodeid : null;
-    const arrNodeId = arrNode ? arrNode.nodeid : null;
-    return {
-      depNodeId,
-      arrNodeId,
-    }
+  if (!depNode) {
+    console.log(`출발역 "${depName}"을(를) 찾을 수 없습니다. 역명을 다시 확인해 주세요.`);
   }
 
-  async findStation(station: String) {
-    return trainData.nodeList.find(e => e.nodename === station || null);
+  if (!arrNode) {
+    console.log(`도착역 "${arrName}"을(를) 찾을 수 없습니다. 역명을 다시 확인해 주세요.`);
   }
+  const depNodeId = depNode.nodeid;
+  const arrNodeId = arrNode.nodeid;
 
-  async stationList() {
-    const stationList = trainData.nodeList;
-
-    return stationList.forEach(e => {
-      console.log(e.nodename);
-    });
-  }
+  return {
+    depNodeId,
+    arrNodeId,
+  };
 }
 
+async findStation(station: String) {
+  for (const region of trainData.nodeList) {
+    const regionKey = Object.keys(region)[0];
+    const nodes = region[regionKey];
+
+    const foundStation = nodes.find(e => e.nodename.toLowerCase().trim() === station.toLowerCase().trim());
+
+    if (foundStation) {
+      return foundStation;
+    }
+  }
+  return null;
+}
+
+async stationList() {
+  const allStations = [];
+
+  for (const region of trainData.nodeList) {
+    const regionKey = Object.keys(region)[0];
+    const nodes = region[regionKey];
+
+    nodes.forEach(e => {
+      allStations.push(e.nodename);
+    });
+  }
+    return allStations;
+  }
+}
 
 
 

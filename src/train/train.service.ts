@@ -91,13 +91,16 @@ export class TrainService {
   async findStation(station: string) {
     const exactlyStation = await this.trainParseService.findStation(station);
     if (exactlyStation) {
-      console.log(`"${station}" 은 존재하는 역 입니다.`);
+      console.log(`"${station}"은 존재하는 역 입니다.`);
     } else {
       console.log('"trainfinder stationlist" 명령어로 존재하는 역을 확인해 보세요.');
     }
   }
 
   async stationList() {
-    return await this.trainParseService.stationList();
+    const list = await this.trainParseService.stationList();
+    list.forEach((item: string) => {
+      console.log(item);
+    });
   }
 }

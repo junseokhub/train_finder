@@ -30,14 +30,6 @@ program
     trainService.searchTrain(opts.dep, opts.arr, opts.date, opts.train);
   });
 
-// program
-//   .command('city')
-//   .description('')
-//   .option('--code <codeNumber>')
-//   .action((opts) => {
-//     trainService.cityCodeList(opts.code);
-//   });
-
 program
   .command('station')
   .description('기차역 존재 유무 확인')
