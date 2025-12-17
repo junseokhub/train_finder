@@ -32,7 +32,7 @@
       ]
     },
     {
-      "kyengki": [
+      "gyeonggi": [
         { "nodeid": "NAT110147", "nodename": "행신" },
         { "nodeid": "NAT010415", "nodename": "수원" },
         { "nodeid": "NATH10219", "nodename": "광명" },
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "kangwon": [
+      "gangwon": [
         { "nodeid": "NAT020864", "nodename": "서원주" },
         { "nodeid": "NAT020947", "nodename": "원주" },
         { "nodeid": "NAT021033", "nodename": "만종" },
@@ -55,6 +55,13 @@
         { "nodeid": "NAT601936", "nodename": "강릉" },
         { "nodeid": "NAT601774", "nodename": "정동진" },
         { "nodeid": "NAT601485", "nodename": "동해" }
+      ]
+    },
+    {
+      "daejeon": [
+        { "nodeid": "NAT011668", "nodename": "대전" },
+        { "nodeid": "NAT030057", "nodename": "서대전" },
+        { "nodeid": "NAT011524", "nodename": "신탄진" }
       ]
     },
     {
@@ -86,7 +93,7 @@
       ]
     },
     {
-      "kyeongnam": [
+      "gyeongnam": [
         { "nodeid": "NATH13717", "nodename": "울산" },
         { "nodeid": "NAT013841", "nodename": "밀양" },
         { "nodeid": "NAT013841", "nodename": "밀양" },
@@ -106,7 +113,7 @@
       ]
     },
     {
-      "kyeongbuk": [
+      "gyeongbuk": [
       { "nodeid": "NAT022053", "nodename": "풍기" },
       { "nodeid": "NAT022188", "nodename": "영주" },
       { "nodeid": "NAT022558", "nodename": "안동" },
@@ -117,13 +124,6 @@
       { "nodeid": "NAT280927", "nodename": "문경" },
       { "nodeid": "NATH13421", "nodename": "경주" },
       { "nodeid": "NAT8B0351", "nodename": "포항" }
-      ]
-    }, 
-    {
-      "daejeon": [
-        { "nodeid": "NAT011668", "nodename": "대전" },
-        { "nodeid": "NAT030057", "nodename": "서대전" },
-        { "nodeid": "NAT011524", "nodename": "신탄진" }
       ]
     },
     {
