@@ -27,9 +27,13 @@
       ]
     },
     {
-      "kyengkiincheon": [
+      "incheon": [
+        { "nodeid": "NATC10580", "nodename": "인천공항T1" }
+      ]
+    },
+    {
+      "kyengki": [
         { "nodeid": "NAT110147", "nodename": "행신" },
-        { "nodeid": "NATC10580", "nodename": "인천공항T1" },
         { "nodeid": "NAT010415", "nodename": "수원" },
         { "nodeid": "NATH10219", "nodename": "광명" },
         { "nodeid": "NATH30326", "nodename": "동탄" },
