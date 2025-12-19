@@ -56,7 +56,6 @@ export class TrainService {
     const items = response.data?.response?.body?.items?.item || [];
     if (!items.length) {
       console.log('조회된 열차가 없습니다.');
-      return;
     }
     
     console.log('=== 🚆 기차 조회 결과 ===');
