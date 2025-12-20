@@ -61,6 +61,7 @@ export class TrainService {
     
     console.log('=== 🚆 기차 조회 결과 ===');
     items.forEach((item: any) => {
+      console.log('-------------조회--------------');
       console.log(`열차번호: ${item.trainno}`);
       console.log(`출발지: ${item.depplacename}`)
       console.log(`출발 시간: ${this.formatDateTime(item.depplandtime)}`);
