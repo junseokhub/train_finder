@@ -14,7 +14,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "nest build && echo '#!/usr/bin/env node' | cat - dist/index.js > temp.js && mv temp.js dist/index.js && chmod +x dist/index.js",
+    "build": "nest build && echo '#!/usr/bin/env node' > temp.js && cat dist/index.js >> temp.js && mv temp.js dist/index.js && chmod +x dist/index.js",
     "cli": "ts-node src/index.ts",
     "cli:build": "tsc src/index.ts --outDir dist",
     "cli:run": "node dist/index.js"
