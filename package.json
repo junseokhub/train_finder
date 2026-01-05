@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "description": "KTX/SRT 실시간 열차 조회 CLI 도구",
   "author": "junseok oh",
-  "private": true,
+  "private": false,
   "license": "MIT",
   "bin": {
     "trainfinder": "./dist/index.js"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "build": "nest build && chmod +x ./dist/index.js",
+    "build": "nest build && echo '#!/usr/bin/env node' | cat - dist/index.js > temp.js && mv temp.js dist/index.js && chmod +x dist/index.js",
     "cli": "ts-node src/index.ts",
     "cli:build": "tsc src/index.ts --outDir dist",
     "cli:run": "node dist/index.js"
