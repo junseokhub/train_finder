@@ -1,6 +1,6 @@
 {
   "name": "trainfinder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "KTX/SRT 실시간 열차 조회 CLI 도구",
   "author": "junseok oh",
   "private": false,
@@ -14,11 +14,16 @@
     "cli:build": "tsc src/index.ts --outDir dist",
     "cli:run": "node dist/index.js"
   },
-  "keywords": ["ktx", "srt", "train", "cli"],
+  "keywords": [
+    "ktx",
+    "srt",
+    "train",
+    "cli"
+  ],
   "files": [
-      "dist",
-      "README.md",
-      "LICENSE"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "dependencies": {
     "@nestjs/common": "^11.1.9",
