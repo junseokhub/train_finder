@@ -32,13 +32,12 @@ trainfinder stationlist
 ```
 
 ## 🔍 Check Station Existence
-> Check whether a station exists.
 > ⚠️ **Station names must be entered in Korean.**
 
 ```bash
 trainfinder station --st <station_name>
 
-# 예시
+# Example
 trainfinder station --st 수서
 ```
 
