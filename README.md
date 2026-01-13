@@ -1,56 +1,69 @@
 # TrainFinder CLI
 
-`TrainFinder`는 **국내 고속선(KTX, SRT) 정보**를 조회할 수 있는 **터미널용 CLI 라이브러리**입니다.  
-출발역/도착역과 날짜 기반으로 기차 조회를 할 수 있습니다.
+`TrainFinder` is a **terminal-based CLI library** that allows you to search for **domestic high-speed train information in South Korea**.  
+You can search for trains based on **departure station, arrival station, and date**.
 
 ---
 
-## ⚡ 설치
+## ⚡ Installation
 
 ```bash
 npm install -g trainfinder
 ```
 
-## 기차 종류 조회
-ktx, ktx산천A, ktx산천B, ktx이음, srt, ktx청룡
+## 🚄 Train Types
+
+> ⚠️ Only the train types listed below are accepted as valid input.
+
+- ktx
+- ktx산천A
+- ktx산천B
+- ktx이음
+- srt
+- ktx청룡
 
 ```bash
 trainfinder trainlist
 ```
 
-## 기차역 조회
+## 🚉 Station List
 ```bash
 trainfinder stationlist
 ```
 
-## 기차역 존재 유무 조회
+## 🔍 Check Station Existence
+> Check whether a station exists.
+> ⚠️ **Station names must be entered in Korean.**
+
 ```bash
-trainfinder station --st <역이름>
+trainfinder station --st <station_name>
 
 # 예시
 trainfinder station --st 수서
 ```
 
 ## 기차 조회
+> Search for trains based on departure station, arrival station, and date.
 
-출발역, 도착역, 날짜를 기반으로 기차 조회
+| Option    | Description               | Default |
+| --------- | ------------------------- | ------- |
+| `--dep`   | Departure station name    | —       |
+| `--arr`   | Arrival station name      | —       |
+| `--date`  | Date to search (YYYYMMDD) | Today   |
+| `--train` | Train type                | ktx     |
 
-- 옵션 설명
---dep : 출발역 코드
-
---arr : 도착역 코드
-
---date : 조회할 날짜 (기본값: 오늘 날짜)
-
---train : 열차 종류 (기본값: ktx)
 
 
 ```bash
-trainfinder search --dep <출발역 이름> --arr <도착역 이름> --date <YYYYMMDD> --train <열차종류>
+trainfinder search \
+  --dep <departure_station> \
+  --arr <arrival_station> \
+  --date <YYYYMMDD> \
+  --train <train_type>
 ```
 
 ```bash
-# 예시
+# Example
 trainfinder search --dep 서울 --arr 오송 --date 20251212 --train ktx
 ```
 
