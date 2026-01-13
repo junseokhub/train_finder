@@ -55,19 +55,19 @@ export class TrainService {
     const response = await axios.get(`${url}?${params.toString()}`, { responseType: 'json' });
     const items = response.data?.response?.body?.items?.item || [];
     if (!items.length) {
-      console.log('조회된 열차가 없습니다.');
+      console.log('No trains found.');
     }
-    
-    console.log('=== 🚆 기차 조회 결과 ===');
+
+    console.log('=== 🚆 Train Search Results ===');
     items.forEach((item: any) => {
-      console.log('-------------조회--------------');
-      console.log(`열차번호: ${item.trainno}`);
-      console.log(`출발지: ${item.depplacename}`)
-      console.log(`출발 시간: ${this.formatDateTime(item.depplandtime)}`);
-      console.log(`도착지: ${item.arrplacename}`)
-      console.log(`도착 시간: ${this.formatDateTime(item.arrplandtime)}`);
-      console.log(`종류: ${item.traingradename}`);
-      console.log('-----------------------------');
+      console.log('-------------Result--------------');
+      console.log(`Train Number: ${item.trainno}`);
+      console.log(`Departure: ${item.depplacename}`);
+      console.log(`Departure Time: ${this.formatDateTime(item.depplandtime)}`);
+      console.log(`Arrival: ${item.arrplacename}`);
+      console.log(`Arrival Time: ${this.formatDateTime(item.arrplandtime)}`);
+      console.log(`Type: ${item.traingradename}`);
+      console.log('--------------------------------');
     });
   }
 
@@ -84,16 +84,16 @@ export class TrainService {
     const response = await axios.get(`${url}?${params.toString()}`, { responseType: 'json' });
     const items = response.data?.response?.body?.items?.item || [];
     console.log(cityCode);
-    console.log('=== 🏢 기차역 목록 ===');
+    console.log('=== 🏢 Station List ===');
     console.log(items);
   }
 
   async findStation(station: string) {
     const exactlyStation = await this.trainParseService.findStation(station);
     if (exactlyStation) {
-      console.log(`"${station}"은 존재하는 역 입니다.`);
+      console.log(`"${station}" is an existing station.`);
     } else {
-      console.log('"trainfinder stationlist" 명령어로 존재하는 역을 확인해 보세요.');
+      console.log('Please check the available stations using the "trainfinder stationlist" command.');
     }
   }
 

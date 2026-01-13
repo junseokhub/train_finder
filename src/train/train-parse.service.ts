@@ -17,10 +17,9 @@ export class TrainParseService {
     );
 
     if (!match) {
-      console.error("❌ 잘못된 기차 이름:", trainName);
-      console.log("입력 가능 전체 기차종류:", trainNames.join(', '));
+      console.error('❌ Invalid train name:', trainName);
+      console.log('Available train types:', trainNames.join(', '));
     }
-
     return match ? String(match.vehiclekndid) : '00';
   }
 
@@ -29,12 +28,13 @@ export class TrainParseService {
   const arrNode = await this.findStation(arrName);
 
   if (!depNode) {
-    console.log(`출발역 "${depName}"을(를) 찾을 수 없습니다. 역명을 다시 확인해 주세요.`);
+    console.log(`Departure station "${depName}" could not be found. Please check the station name again.`);
   }
 
   if (!arrNode) {
-    console.log(`도착역 "${arrName}"을(를) 찾을 수 없습니다. 역명을 다시 확인해 주세요.`);
+    console.log(`Arrival station "${arrName}" could not be found. Please check the station name again.`);
   }
+
   const depNodeId = depNode.nodeid;
   const arrNodeId = arrNode.nodeid;
 
