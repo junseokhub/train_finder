@@ -42,7 +42,7 @@ trainfinder station --st <station_name>
 trainfinder station --st 수서
 ```
 
-## 기차 조회
+## 🔎 Train Search
 > Search for trains based on departure station, arrival station, and date.
 
 | Option    | Description               | Default |
