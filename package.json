@@ -1,6 +1,6 @@
 {
   "name": "trainfinder",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "KTX/SRT 실시간 열차 조회 CLI 도구",
   "author": "junseok oh",
   "license": "MIT",
