@@ -20,13 +20,6 @@ program
   .description('KTX/SRT CLI')
   .version('1.0.0');
 
-program 
-  .command('trainlist')
-  .description('List all train types')
-  .action(() => {
-    trainService.trainList();
-  });
-
 program
   .command('search')
   .description('Search trains by departure, arrival, date, and train type')
@@ -34,8 +27,9 @@ program
   .option('--arr <arr>', 'Arrival station ID')
   .option('--date <date>', 'Date (YYYYMMDD)', getTodayYYYYMMDD())
   .option('--train <train>', 'Train type', '00')
+  .option('--time <time>', 'After time', '00')
   .action((opts) => {
-    trainService.searchTrain(opts.dep, opts.arr, opts.date, opts.train);
+    trainService.searchTrain(opts.dep, opts.arr, opts.date, opts.train, opts.time);
   });
 
 program

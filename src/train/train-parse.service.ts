@@ -2,25 +2,28 @@ import trainData from './train-data.json'
 export class TrainParseService {
   constructor() {}
 
-  async trainList() {
-    const trainList = trainData.trainNames;
-    trainList.forEach(train => {
-      console.log(train);
-    });
-  }
 
-  async parseToNodeId(trainName: string) {
-    const trainNames = trainData.trainNames;
+  async parseToNodeId(trainName: string): Promise<string[]> {
+    const name = trainName.toLowerCase();
+    
+    if (name === 'ktx') {
+      return ['00', '07', '10', '16', '19'];
+    }
+    
+    if (name === 'srt') {
+      return ['17'];
+    }
+
+    if (name === 'regular') {
+      return ['01', '02', '04', '08', '09', '18'];
+    }
+
     const vehicleMapping = trainData.vehicleMapping;
     const match = vehicleMapping.find(v =>
-      v.vehiclekndnm.replace(/-/g, '').toLowerCase() === trainName.toLowerCase()
+      v.vehiclekndnm.replace(/-/g, '').toLowerCase() === name
     );
 
-    if (!match) {
-      console.error('❌ Invalid train name:', trainName);
-      console.log('Available train types:', trainNames.join(', '));
-    }
-    return match ? String(match.vehiclekndid) : '00';
+    return match ? [String(match.vehiclekndid)] : [];
   }
 
  async trainDepArrFinder(depName: string, arrName: string) {
@@ -72,31 +75,3 @@ async stationList() {
     return allStations;
   }
 }
-
-
-
-  //   "ktx",
-  //   "새마을호",
-  //   "무궁화호",
-  //   "누리로",
-  //   "ktx산천A",
-  //   "itx새마을",
-  //   "itx청춘",
-  //   "ktx산천B",
-  //   "ktx이음",
-  //   "srt",
-  //   "itx마음",
-  //   "ktx청룡"
-  // "vehicleMapping": [
-  //   { "vehiclekndid": "00", "vehiclekndnm": "KTX" },
-  //   { "vehiclekndid": "01", "vehiclekndnm": "새마을호" },
-  //   { "vehiclekndid": "02", "vehiclekndnm": "무궁화호" },
-  //   { "vehiclekndid": "04", "vehiclekndnm": "누리로" },
-  //   { "vehiclekndid": "07", "vehiclekndnm": "KTX-산천(A-type)" },
-  //   { "vehiclekndid": "08", "vehiclekndnm": "ITX-새마을" },
-  //   { "vehiclekndid": "09", "vehiclekndnm": "ITX-청춘" },
-  //   { "vehiclekndid": "10", "vehiclekndnm": "KTX-산천(B-type)" },
-  //   { "vehiclekndid": "16", "vehiclekndnm": "KTX-이음" },
-  //   { "vehiclekndid": "17", "vehiclekndnm": "SRT" },
-  //   { "vehiclekndid": "18", "vehiclekndnm": "ITX-마음" },
-  //   { "vehiclekndid": "19", "vehiclekndnm": "KTX-청룡" }]

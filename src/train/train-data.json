@@ -1,12 +1,4 @@
 {
-  "trainNames": [
-    "ktx",
-    "ktx산천A",
-    "ktx산천B",
-    "ktx이음",
-    "srt",
-    "ktx청룡"
-  ],
   "vehicleMapping": [
     { "vehiclekndid": "00", "vehiclekndnm": "KTX" },
     { "vehiclekndid": "07", "vehiclekndnm": "KTX-산천(A-type)" },

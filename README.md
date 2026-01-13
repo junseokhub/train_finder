@@ -15,16 +15,9 @@ npm install -g trainfinder
 
 > ⚠️ Only the train types listed below are accepted as valid input.
 
+- regular
 - ktx
-- ktx산천A
-- ktx산천B
-- ktx이음
 - srt
-- ktx청룡
-
-```bash
-trainfinder trainlist
-```
 
 ## 🚉 Station List
 ```bash
@@ -50,7 +43,7 @@ trainfinder station --st 수서
 | `--arr`   | Arrival station name      | —       |
 | `--date`  | Date to search (YYYYMMDD) | Today   |
 | `--train` | Train type                | ktx     |
-
+| `--time`  | After time list (Optional)| 00 ~ 24 |
 
 
 ```bash
@@ -58,12 +51,13 @@ trainfinder search \
   --dep <departure_station> \
   --arr <arrival_station> \
   --date <YYYYMMDD> \
-  --train <train_type>
+  --train <train_type> \
+  --time <time> (optional)
 ```
 
 ```bash
 # Example
-trainfinder search --dep 서울 --arr 오송 --date 20251212 --train ktx
+trainfinder search --dep 서울 --arr 오송 --date 20251212 --train ktx --time 13 (optional)
 ```
 
 
