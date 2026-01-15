@@ -7,7 +7,7 @@ export class TrainService {
     private readonly trainParseService: TrainParseService
   ) {}
 
-  formatDateTime(dateTime: number): string {
+  private formatDateTime(dateTime: number): string {
     const dateTimeString = dateTime.toString();
     
     const year = dateTimeString.slice(0, 4);
@@ -17,39 +17,6 @@ export class TrainService {
     const minute = dateTimeString.slice(10, 12);
     
     return `${year}-${month}-${day} ${hour}:${minute}`;
-  }
-
-  async today(date: string) {
-    const now = new Date();
-    const kstOffset = 9 * 60;
-    now.setMinutes(now.getMinutes() + now.getTimezoneOffset() + kstOffset);
-
-    const currentDate = now.toISOString().slice(0, 10).replace(/-/g, '');
-
-    if (date < currentDate) {
-      throw new Error('The provided date is earlier than the current date.');
-    }
-    return
-  }
-
-  async searchTrain(depName: string, arrName: string, date: string, trainName: string, time?: string) {
-    try {
-      await this.validateDate(date);
-      
-      const codes = await this.trainParseService.parseToNodeId(trainName);
-      const { depNodeId, arrNodeId } = await this.trainParseService.trainDepArrFinder(depName, arrName);
-      
-      if (!depNodeId || !arrNodeId) return;
-
-      const rawItems = await this.fetchTrainData(codes, depNodeId, arrNodeId, date);
-      
-      const processedItems = this.processTrainItems(rawItems, time);
-
-      this.displayResults(processedItems, trainName, time);
-      
-    } catch (error) {
-      console.error(`❌ Error: ${error.message}`);
-    }
   }
 
   private async fetchTrainData(codes: string[], depId: string, arrId: string, date: string) {
@@ -114,16 +81,49 @@ export class TrainService {
   }
 
   private async validateDate(date: string) {
-      const now = new Date();
-      const kstDate = new Date(now.getTime() + (9 * 60 * 60 * 1000))
-        .toISOString()
-        .slice(0, 10)
-        .replace(/-/g, '');
-      
-      if (date < kstDate) {
-        throw new Error('Cannot search for dates in the past.');
-      }
+    const now = new Date();
+    const kstDate = new Date(now.getTime() + (9 * 60 * 60 * 1000))
+      .toISOString()
+      .slice(0, 10)
+      .replace(/-/g, '');
+    
+    if (date < kstDate) {
+      throw new Error('Cannot search for dates in the past.');
     }
+  }
+
+  async today(date: string) {
+    const now = new Date();
+    const kstOffset = 9 * 60;
+    now.setMinutes(now.getMinutes() + now.getTimezoneOffset() + kstOffset);
+
+    const currentDate = now.toISOString().slice(0, 10).replace(/-/g, '');
+
+    if (date < currentDate) {
+      throw new Error('The provided date is earlier than the current date.');
+    }
+    return
+  }
+
+  async searchTrain(depName: string, arrName: string, date: string, trainName: string, time?: string) {
+    try {
+      await this.validateDate(date);
+      
+      const codes = await this.trainParseService.parseToNodeId(trainName);
+      const { depNodeId, arrNodeId } = await this.trainParseService.trainDepArrFinder(depName, arrName);
+      
+      if (!depNodeId || !arrNodeId) return;
+
+      const rawItems = await this.fetchTrainData(codes, depNodeId, arrNodeId, date);
+      
+      const processedItems = this.processTrainItems(rawItems, time);
+
+      this.displayResults(processedItems, trainName, time);
+      
+    } catch (error) {
+      console.error(`❌ Error: ${error.message}`);
+    }
+  }
 
   async cityCodeList(cityCode: string) {
     const url = 'http://apis.data.go.kr/1613000/TrainInfoService/getCtyAcctoTrainSttnList';
