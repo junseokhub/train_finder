@@ -2,7 +2,7 @@
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Source-black?logo=github)](https://github.com/junseokhub/train_finder)
 
-`TrainFinder` is a **terminal-based CLI library** that allows you to search for **domestic high-speed train information in South Korea**.  
+`TrainFinder` is a **terminal-based CLI library** that allows you to search for **domestic all train information in South Korea**.  
 You can search for trains based on **departure station, arrival station, and date**.
 
 ---
@@ -17,8 +17,8 @@ npm install -g trainfinder
 
 > ⚠️ Only the train types listed below are accepted as valid input.
 
-- regular
-- ktx
+- normal (ITX-청춘, ITX-새마을, ITX-마음, 무궁화호, 새마을호, 통근열차, 누리로, AREX직통)
+- ktx (KTX-산천, KTX-이음, KTX-청룡 )
 - srt
 
 ## 🚉 Station List

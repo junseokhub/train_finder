@@ -14,16 +14,10 @@ export class TrainParseService {
       return ['17'];
     }
 
-    if (name === 'regular') {
-      return ['01', '02', '04', '08', '09', '18'];
+    if (name === 'normal') {
+      return ['01', '02', '03', '04', '06', '08', '09', '18'];
     }
-
-    const vehicleMapping = trainData.vehicleMapping;
-    const match = vehicleMapping.find(v =>
-      v.vehiclekndnm.replace(/-/g, '').toLowerCase() === name
-    );
-
-    return match ? [String(match.vehiclekndid)] : [];
+    throw Error('The only valid train names: ktx, srt, normal');
   }
 
  async trainDepArrFinder(depName: string, arrName: string) {

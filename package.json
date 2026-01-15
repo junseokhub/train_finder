@@ -1,6 +1,6 @@
 {
   "name": "trainfinder",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "KTX/SRT Real-Time Train CLI",
   "author": "junseok oh",
   "license": "MIT",
