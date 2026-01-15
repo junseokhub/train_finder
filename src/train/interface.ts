@@ -1,4 +1,5 @@
 export interface TrainInfo {
+   adultcharge: number;
   trainno: number;
   traingradename: string;
   depplacename: string;

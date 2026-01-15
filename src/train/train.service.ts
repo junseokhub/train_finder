@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { TrainParseService } from './train-parse.service';
+import { TrainInfo } from './interface';
 
 export class TrainService {
   private readonly serviceKey = 'd2a259fae046ba1b65a3c083fdd80de2a781e37eb27f939d758af1de25f606f9';
@@ -19,7 +20,7 @@ export class TrainService {
     return `${year}-${month}-${day} ${hour}:${minute}`;
   }
 
-  private async fetchTrainData(codes: string[], depId: string, arrId: string, date: string) {
+  private async fetchTrainData(codes: string[], depId: string, arrId: string, date: string): Promise<TrainInfo[]> {
     const requests = codes.map(code => 
       axios.get('http://apis.data.go.kr/1613000/TrainInfoService/getStrtpntAlocFndTrainInfo', {
         params: {
@@ -35,7 +36,7 @@ export class TrainService {
     );
 
     const responses = await Promise.all(requests);
-    const combined: any[] = [];
+    const combined: TrainInfo[] = [];
 
     responses.forEach(res => {
       const items = res.data?.response?.body?.items?.item;
@@ -47,7 +48,7 @@ export class TrainService {
     return combined;
   }
 
-  private processTrainItems(items: any[], time?: string): any[] {
+  private processTrainItems(items: TrainInfo[], time?: string): TrainInfo[] {
     let result = [...items];
 
     if (time) {
@@ -61,7 +62,7 @@ export class TrainService {
     return result.sort((a, b) => Number(a.depplandtime) - Number(b.depplandtime));
   }
 
-  private displayResults(items: any[], trainName: string, time?: string) {
+  private displayResults(items: TrainInfo[], trainName: string, time?: string) {
     if (items.length === 0) {
       console.log(`\n❌ No trains found for [${trainName.toUpperCase()}]${time ? ' after ' + time + ':00' : ''}.`);
       return;
@@ -76,6 +77,7 @@ export class TrainService {
       console.log(`Arrival: ${item.arrplacename}`);
       console.log(`Arrival Time: ${this.formatDateTime(item.arrplandtime)}`);
       console.log(`Type: ${item.traingradename}`);
+      console.log(`Adult Charge: ${item.adultcharge.toLocaleString()} Won`);
       console.log('--------------------------------');
     });
   }

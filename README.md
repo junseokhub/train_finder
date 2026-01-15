@@ -39,13 +39,13 @@ trainfinder station --st 수서
 ## 🔎 Train Search
 > Search for trains based on departure station, arrival station, and date.
 
-| Option    | Description               | Default |
-| --------- | ------------------------- | ------- |
-| `--dep`   | Departure station name    | —       |
-| `--arr`   | Arrival station name      | —       |
-| `--date`  | Date to search (YYYYMMDD) | Today   |
-| `--train` | Train type                | ktx     |
-| `--time`  | After time list (Optional)| 00 ~ 24 |
+| Option    | Description               | Default   |
+| --------- | ------------------------- | --------  |
+| `--dep`   | Departure station name    | —         |
+| `--arr`   | Arrival station name      | —         |
+| `--date`  | Date to search (YYYYMMDD) | Today     |
+| `--train` | Train type                | ktx       |
+| `--time`  | After time list (Optional)| 00 (00~24)|
 
 
 ```bash
