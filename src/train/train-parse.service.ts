@@ -55,17 +55,11 @@ async findStation(station: String) {
   return null;
 }
 
-async stationList() {
-  const allStations = [];
-
-  for (const region of trainData.nodeList) {
-    const regionKey = Object.keys(region)[0];
-    const nodes = region[regionKey];
-
-    nodes.forEach(e => {
-      allStations.push(e.nodename);
-    });
-  }
-    return allStations;
+  stationList() {
+    return trainData.nodeList.flatMap(region =>
+      Object.values(region).flatMap(nodes =>
+        nodes.map(node => node.nodename)
+      )
+    );
   }
 }
