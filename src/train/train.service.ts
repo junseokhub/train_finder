@@ -93,20 +93,7 @@ export class TrainService {
       throw new Error('Cannot search for dates in the past.');
     }
   }
-
-  async today(date: string) {
-    const now = new Date();
-    const kstOffset = 9 * 60;
-    now.setMinutes(now.getMinutes() + now.getTimezoneOffset() + kstOffset);
-
-    const currentDate = now.toISOString().slice(0, 10).replace(/-/g, '');
-
-    if (date < currentDate) {
-      throw new Error('The provided date is earlier than the current date.');
-    }
-    return
-  }
-
+  
   async searchTrain(depName: string, arrName: string, date: string, trainName: string, time?: string) {
     try {
       await this.validateDate(date);
